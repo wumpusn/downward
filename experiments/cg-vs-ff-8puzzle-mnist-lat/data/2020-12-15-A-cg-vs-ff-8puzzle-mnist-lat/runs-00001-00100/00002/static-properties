@@ -1,0 +1,30 @@
+{
+  "algorithm": "20.06:02-ff",
+  "build_options": [],
+  "component_options": [
+    "--search",
+    "eager_greedy([ff(transform=adapt_costs(one))])"
+  ],
+  "domain": "slidingtile-eight-mnist-lat",
+  "driver_options": [
+    "--validate",
+    "--overall-time-limit",
+    "30m",
+    "--overall-memory-limit",
+    "3584M",
+    "--overall-time-limit",
+    "5m"
+  ],
+  "experiment_name": "2020-12-15-A-cg-vs-ff-8puzzle-mnist-lat",
+  "global_revision": "3a27ea77f",
+  "id": [
+    "20.06:02-ff",
+    "slidingtile-eight-mnist-lat",
+    "p01.pddl"
+  ],
+  "local_revision": "release-20.06.0",
+  "problem": "p01.pddl",
+  "repo": "/mnt/c/Users/yutat/workspace/downward-projects/downward",
+  "revision_summary": "3a27ea77f",
+  "run_dir": "runs-00001-00100/00002"
+}

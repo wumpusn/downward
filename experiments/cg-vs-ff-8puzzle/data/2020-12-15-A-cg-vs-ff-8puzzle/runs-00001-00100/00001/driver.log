@@ -1,0 +1,13 @@
+2020-12-15 17:43:24,233 INFO     node: DESKTOP-0NLICAP
+2020-12-15 17:43:25,673 INFO     planner wall-clock time: 1.43s
+2020-12-15 17:43:25,673 INFO     planner exit code: 0
+2020-12-15 17:43:25,851 INFO     exitcode_parser wall-clock time: 0.18s
+2020-12-15 17:43:25,852 INFO     exitcode_parser exit code: 0
+2020-12-15 17:43:26,087 INFO     translator_parser wall-clock time: 0.22s
+2020-12-15 17:43:26,087 INFO     translator_parser exit code: 0
+2020-12-15 17:43:26,234 INFO     single_search_parser wall-clock time: 0.14s
+2020-12-15 17:43:26,235 INFO     single_search_parser exit code: 0
+2020-12-15 17:43:26,381 INFO     planner_parser wall-clock time: 0.14s
+2020-12-15 17:43:26,381 INFO     planner_parser exit code: 0
+2020-12-15 17:43:26,531 INFO     parser wall-clock time: 0.15s
+2020-12-15 17:43:26,532 INFO     parser exit code: 0

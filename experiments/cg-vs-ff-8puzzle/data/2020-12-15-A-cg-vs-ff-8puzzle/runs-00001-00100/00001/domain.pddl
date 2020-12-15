@@ -1,0 +1,1 @@
+../../../../../../../benchmarks/slidingtile-eight-mnist/domain.pddl

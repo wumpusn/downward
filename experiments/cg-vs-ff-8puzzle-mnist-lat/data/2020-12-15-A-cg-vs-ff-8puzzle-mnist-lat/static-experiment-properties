@@ -1,0 +1,13 @@
+{
+  "algorithms": [
+    "20.06:01-cg",
+    "20.06:02-ff"
+  ],
+  "experiment_file": "2020-12-15-A-cg-vs-ff-8puzzle-mnist-lat.py",
+  "runs": 2,
+  "suite": {
+    "/mnt/c/Users/yutat/workspace/downward-projects/benchmarks": [
+      "slidingtile-eight-mnist-lat:p01.pddl"
+    ]
+  }
+}

@@ -1,0 +1,1 @@
+../../../../../../../benchmarks/slidingtile-eight-mnist-lat/p01.pddl

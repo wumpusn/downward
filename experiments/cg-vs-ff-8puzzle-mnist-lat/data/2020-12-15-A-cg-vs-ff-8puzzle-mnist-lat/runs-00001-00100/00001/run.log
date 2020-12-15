@@ -1,0 +1,184 @@
+INFO     Running translator.
+INFO     translator stdin: None
+INFO     translator time limit: 299.87s
+INFO     translator memory limit: 3584 MB
+INFO     translator command line string: /mnt/c/Users/yutat/workspace/downward-projects/downward/experiments/cg-vs-ff-8puzzle-mnist-lat/.venv/bin/python /mnt/c/Users/yutat/workspace/downward-projects/downward/experiments/cg-vs-ff-8puzzle-mnist-lat/data/2020-12-15-A-cg-vs-ff-8puzzle-mnist-lat/code-3a27ea77f_e5e41175/builds/release/bin/translate/translate.py domain.pddl problem.pddl --sas-file output.sas
+Parsing...
+Parsing: [0.710s CPU, 0.735s wall-clock]
+Normalizing task... [0.050s CPU, 0.051s wall-clock]
+Instantiating...
+Generating Datalog program... [0.020s CPU, 0.016s wall-clock]
+Normalizing Datalog program...
+Trivial rules: Converted to facts.
+Normalizing Datalog program: [0.020s CPU, 0.076s wall-clock]
+Preparing model... [0.010s CPU, 0.008s wall-clock]
+Generated 814 rules.
+Computing model... [0.000s CPU, 0.004s wall-clock]
+287 relevant atoms
+0 auxiliary atoms
+287 final queue length
+838 total queue pushes
+Completing instantiation... [0.100s CPU, 0.096s wall-clock]
+Instantiating: [0.150s CPU, 0.201s wall-clock]
+Computing fact groups...
+Finding invariants...
+37 initial candidates
+Finding invariants: [0.970s CPU, 0.976s wall-clock]
+Checking invariant weight... [0.000s CPU, 0.000s wall-clock]
+Instantiating groups... [0.000s CPU, 0.000s wall-clock]
+Collecting mutex groups... [0.000s CPU, 0.000s wall-clock]
+Choosing groups...
+37 uncovered facts
+Choosing groups: [0.000s CPU, 0.000s wall-clock]
+Building translation key... [0.000s CPU, 0.000s wall-clock]
+Computing fact groups: [0.970s CPU, 0.977s wall-clock]
+Building STRIPS to SAS dictionary... [0.000s CPU, 0.000s wall-clock]
+Building dictionary for full mutex groups... [0.000s CPU, 0.000s wall-clock]
+Building mutex information...
+Building mutex information: [0.000s CPU, 0.000s wall-clock]
+Translating task...
+Processing axioms...
+Simplifying axioms... [0.000s CPU, 0.000s wall-clock]
+Translator axioms removed by simplifying: 0
+Computing negative axioms... [0.000s CPU, 0.000s wall-clock]
+Processing axioms: [0.010s CPU, 0.003s wall-clock]
+Translating task: [0.040s CPU, 0.039s wall-clock]
+569 effect conditions simplified
+0 implied preconditions added
+Detecting unreachable propositions...
+0 operators removed
+0 axioms removed
+0 propositions removed
+Detecting unreachable propositions: [0.010s CPU, 0.010s wall-clock]
+Reordering and filtering variables...
+37 of 37 variables necessary.
+0 of 0 mutex groups necessary.
+249 of 249 operators necessary.
+0 of 0 axiom rules necessary.
+Reordering and filtering variables: [0.010s CPU, 0.010s wall-clock]
+Translator variables: 37
+Translator derived variables: 0
+Translator facts: 74
+Translator goal facts: 37
+Translator mutex groups: 0
+Translator total mutex groups size: 0
+Translator operators: 249
+Translator axioms: 0
+Translator task size: 5229
+Translator peak memory: 73240 KB
+Writing output... [0.010s CPU, 0.015s wall-clock]
+Done! [1.950s CPU, 2.039s wall-clock]
+translate exit code: 0
+
+INFO     Running search (release).
+INFO     search stdin: output.sas
+INFO     search time limit: 297.68s
+INFO     search memory limit: 3584 MB
+INFO     search command line string: /mnt/c/Users/yutat/workspace/downward-projects/downward/experiments/cg-vs-ff-8puzzle-mnist-lat/data/2020-12-15-A-cg-vs-ff-8puzzle-mnist-lat/code-3a27ea77f_e5e41175/builds/release/bin/downward --search 'eager_greedy([cg(transform=adapt_costs(one))])' --internal-plan-file sas_plan < output.sas
+[t=0.000673959s, 22020 KB] reading input...
+[t=0.00293331s, 22152 KB] done reading input!
+[t=0.0041292s, 22552 KB] Initializing causal graph heuristic...
+[t=0.00420061s, 22552 KB] Initializing heuristic cache... building causal graph...done! [t=0.0015375s]
+[t=0.0093327s, 35036 KB] done!
+[t=0.0113592s, 35168 KB] Building successor generator...done!
+[t=0.0119954s, 35168 KB] peak memory difference for successor generator creation: 0 KB
+[t=0.0120282s, 35168 KB] time for successor generation creation: 0.000472453s
+[t=0.0120709s, 35168 KB] Variables: 37
+[t=0.0121118s, 35168 KB] FactPairs: 74
+[t=0.0121485s, 35168 KB] Bytes per state: 8
+[t=0.0122536s, 35168 KB] Conducting best first search without reopening closed nodes, (real) bound = 2147483647
+[t=0.0123695s, 35168 KB] New best heuristic value for cg(transform = adapt_costs(one)): 11
+[t=0.0124086s, 35168 KB] g=0, 1 evaluated, 0 expanded
+[t=0.0124339s, 35168 KB] Initial heuristic value for cg(transform = adapt_costs(one)): 11
+[t=0.0124462s, 35168 KB] pruning method: none
+[t=0.0125579s, 35168 KB] New best heuristic value for cg(transform = adapt_costs(one)): 5
+[t=0.0125963s, 35168 KB] g=1, 4 evaluated, 1 expanded
+[t=0.0132878s, 35168 KB] New best heuristic value for cg(transform = adapt_costs(one)): 4
+[t=0.0133239s, 35168 KB] g=8, 31 evaluated, 11 expanded
+[t=0.0138533s, 35168 KB] New best heuristic value for cg(transform = adapt_costs(one)): 3
+[t=0.0138943s, 35168 KB] g=8, 50 evaluated, 16 expanded
+[t=0.0141742s, 35168 KB] New best heuristic value for cg(transform = adapt_costs(one)): 2
+[t=0.0142082s, 35168 KB] g=11, 62 evaluated, 20 expanded
+[t=0.0169285s, 35168 KB] New best heuristic value for cg(transform = adapt_costs(one)): 1
+[t=0.0169706s, 35168 KB] g=17, 179 evaluated, 66 expanded
+[t=0.243912s, 35572 KB] New best heuristic value for cg(transform = adapt_costs(one)): 0
+[t=0.244s, 35572 KB] g=78, 10958 evaluated, 3964 expanded
+[t=0.244026s, 35572 KB] Solution found!
+[t=0.244041s, 35572 KB] Actual search time: 0.231595s
+a1232  (1)
+a1291  (1)
+a1233  (1)
+a598  (1)
+a137  (1)
+a1233  (1)
+a1010  (1)
+a1377  (1)
+a1215  (1)
+a1597  (1)
+a1493  (1)
+a235  (1)
+a1415  (1)
+a1293  (1)
+a175  (1)
+a1424  (1)
+a1300  (1)
+a1000  (1)
+a5  (1)
+a422  (1)
+a1435  (1)
+a1593  (1)
+a1096  (1)
+a5  (1)
+a1493  (1)
+a1435  (1)
+a1151  (1)
+a1096  (1)
+a1493  (1)
+a849  (1)
+a1151  (1)
+a595  (1)
+a422  (1)
+a1392  (1)
+a1424  (1)
+a1300  (1)
+a1000  (1)
+a5  (1)
+a841  (1)
+a1233  (1)
+a1424  (1)
+a1300  (1)
+a849  (1)
+[t=0.244054s, 35572 KB] Plan length: 43 step(s).
+[t=0.244054s, 35572 KB] Plan cost: 43
+[t=0.244054s, 35572 KB] Expanded 3965 state(s).
+[t=0.244054s, 35572 KB] Reopened 0 state(s).
+[t=0.244054s, 35572 KB] Evaluated 10958 state(s).
+[t=0.244054s, 35572 KB] Evaluations: 10958
+[t=0.244054s, 35572 KB] Generated 18268 state(s).
+[t=0.244054s, 35572 KB] Dead ends: 0 state(s).
+[t=0.244054s, 35572 KB] Number of registered states: 10958
+[t=0.244054s, 35572 KB] Int hash set load factor: 10958/16384 = 0.668823
+[t=0.244054s, 35572 KB] Int hash set resizes: 14
+[t=0.244054s, 35572 KB] Search time: 0.231801s
+[t=0.244054s, 35572 KB] Total time: 0.244054s
+Solution found.
+Peak memory: 35572 KB
+Remove intermediate file output.sas
+search exit code: 0
+
+INFO     Running validate.
+INFO     validate stdin: None
+INFO     validate time limit: None
+INFO     validate memory limit: None
+INFO     validate command line string: validate domain.pddl problem.pddl sas_plan
+Checking plan: sas_plan
+Plan executed successfully - checking goal
+Plan valid
+Final value: 43 
+
+Successful plans:
+Value: 43
+ sas_plan 43 
+
+validate exit code: 0
+
