@@ -1,0 +1,201 @@
+INFO     Running translator.
+INFO     translator stdin: None
+INFO     translator time limit: 299.92s
+INFO     translator memory limit: 3584 MB
+INFO     translator command line string: /mnt/c/Users/yutat/workspace/downward-projects/downward/experiments/cg-vs-ff-8puzzle/.venv/bin/python /mnt/c/Users/yutat/workspace/downward-projects/downward/experiments/cg-vs-ff-8puzzle/data/2020-12-15-A-cg-vs-ff-8puzzle/code-3a27ea77f_e5e41175/builds/release/bin/translate/translate.py domain.pddl problem.pddl --sas-file output.sas
+Parsing...
+Parsing: [0.000s CPU, 0.007s wall-clock]
+Normalizing task... [0.000s CPU, 0.000s wall-clock]
+Instantiating...
+Generating Datalog program... [0.000s CPU, 0.000s wall-clock]
+Normalizing Datalog program...
+Normalizing Datalog program: [0.010s CPU, 0.047s wall-clock]
+Preparing model... [0.000s CPU, 0.001s wall-clock]
+Generated 49 rules.
+Computing model... [0.020s CPU, 0.007s wall-clock]
+324 relevant atoms
+494 auxiliary atoms
+818 final queue length
+1130 total queue pushes
+Completing instantiation... [0.010s CPU, 0.007s wall-clock]
+Instantiating: [0.040s CPU, 0.063s wall-clock]
+Computing fact groups...
+Finding invariants...
+7 initial candidates
+Finding invariants: [0.000s CPU, 0.003s wall-clock]
+Checking invariant weight... [0.000s CPU, 0.000s wall-clock]
+Instantiating groups... [0.000s CPU, 0.000s wall-clock]
+Collecting mutex groups... [0.000s CPU, 0.000s wall-clock]
+Choosing groups...
+0 uncovered facts
+Choosing groups: [0.000s CPU, 0.000s wall-clock]
+Building translation key... [0.000s CPU, 0.000s wall-clock]
+Computing fact groups: [0.000s CPU, 0.004s wall-clock]
+Building STRIPS to SAS dictionary... [0.000s CPU, 0.000s wall-clock]
+Building dictionary for full mutex groups... [0.000s CPU, 0.000s wall-clock]
+Building mutex information...
+Building mutex information: [0.000s CPU, 0.000s wall-clock]
+Translating task...
+Processing axioms...
+Simplifying axioms... [0.000s CPU, 0.000s wall-clock]
+Translator axioms removed by simplifying: 0
+Computing negative axioms... [0.000s CPU, 0.000s wall-clock]
+Processing axioms: [0.000s CPU, 0.000s wall-clock]
+Translating task: [0.010s CPU, 0.006s wall-clock]
+0 effect conditions simplified
+0 implied preconditions added
+Detecting unreachable propositions...
+0 operators removed
+0 axioms removed
+9 propositions removed
+Detecting unreachable propositions: [0.000s CPU, 0.003s wall-clock]
+Reordering and filtering variables...
+9 of 9 variables necessary.
+0 of 9 mutex groups necessary.
+192 of 192 operators necessary.
+0 of 0 axiom rules necessary.
+Reordering and filtering variables: [0.000s CPU, 0.001s wall-clock]
+Translator variables: 9
+Translator derived variables: 0
+Translator facts: 81
+Translator goal facts: 8
+Translator mutex groups: 0
+Translator total mutex groups size: 0
+Translator operators: 192
+Translator axioms: 0
+Translator task size: 1058
+Translator peak memory: 49604 KB
+Writing output... [0.000s CPU, 0.012s wall-clock]
+Done! [0.050s CPU, 0.097s wall-clock]
+translate exit code: 0
+
+INFO     Running search (release).
+INFO     search stdin: output.sas
+INFO     search time limit: 299.71s
+INFO     search memory limit: 3584 MB
+INFO     search command line string: /mnt/c/Users/yutat/workspace/downward-projects/downward/experiments/cg-vs-ff-8puzzle/data/2020-12-15-A-cg-vs-ff-8puzzle/code-3a27ea77f_e5e41175/builds/release/bin/downward --search 'eager_greedy([cg(transform=adapt_costs(one))])' --internal-plan-file sas_plan < output.sas
+[t=0.000569969s, 22020 KB] reading input...
+[t=0.00150024s, 22152 KB] done reading input!
+[t=0.00233813s, 22416 KB] Initializing causal graph heuristic...
+[t=0.00238265s, 22416 KB] Initializing heuristic cache... building causal graph...done! [t=5.7802e-05s]
+[t=0.00284554s, 23816 KB] done!
+[t=0.00308029s, 23816 KB] Building successor generator...done!
+[t=0.0032479s, 23816 KB] peak memory difference for successor generator creation: 0 KB
+[t=0.00327547s, 23816 KB] time for successor generation creation: 7.441e-05s
+[t=0.00331247s, 23816 KB] Variables: 9
+[t=0.00334901s, 23816 KB] FactPairs: 81
+[t=0.00338403s, 23816 KB] Bytes per state: 8
+[t=0.00345025s, 23816 KB] Conducting best first search without reopening closed nodes, (real) bound = 2147483647
+[t=0.00351702s, 23816 KB] New best heuristic value for cg(transform = adapt_costs(one)): 13
+[t=0.00356295s, 23816 KB] g=0, 1 evaluated, 0 expanded
+[t=0.00358562s, 23816 KB] Initial heuristic value for cg(transform = adapt_costs(one)): 13
+[t=0.0035968s, 23816 KB] pruning method: none
+[t=0.00380154s, 23816 KB] New best heuristic value for cg(transform = adapt_costs(one)): 11
+[t=0.00383952s, 23816 KB] g=12, 40 evaluated, 26 expanded
+[t=0.0038764s, 23816 KB] New best heuristic value for cg(transform = adapt_costs(one)): 9
+[t=0.00390486s, 23816 KB] g=14, 43 evaluated, 28 expanded
+[t=0.00422869s, 23816 KB] New best heuristic value for cg(transform = adapt_costs(one)): 7
+[t=0.00426565s, 23816 KB] g=25, 116 evaluated, 70 expanded
+[t=0.00431059s, 23816 KB] New best heuristic value for cg(transform = adapt_costs(one)): 5
+[t=0.00434481s, 23816 KB] g=26, 118 evaluated, 71 expanded
+[t=0.00483417s, 23816 KB] New best heuristic value for cg(transform = adapt_costs(one)): 3
+[t=0.00487082s, 23816 KB] g=53, 253 evaluated, 147 expanded
+[t=0.00489775s, 23816 KB] New best heuristic value for cg(transform = adapt_costs(one)): 1
+[t=0.00492532s, 23816 KB] g=54, 255 evaluated, 148 expanded
+[t=0.00545148s, 23816 KB] New best heuristic value for cg(transform = adapt_costs(one)): 0
+[t=0.0054891s, 23816 KB] g=59, 412 evaluated, 239 expanded
+[t=0.00551075s, 23816 KB] Solution found!
+[t=0.00552435s, 23816 KB] Actual search time: 0.00190501s
+move-down t3 x1 y2 y1 (1)
+move-down t6 x1 y3 y2 (1)
+move-right t7 x2 y3 x1 (1)
+move-right t8 x3 y3 x2 (1)
+move-up t5 x3 y2 y3 (1)
+move-up t2 x3 y1 y2 (1)
+move-left t1 x2 y1 x3 (1)
+move-left t3 x1 y1 x2 (1)
+move-down t6 x1 y2 y1 (1)
+move-down t7 x1 y3 y2 (1)
+move-right t8 x2 y3 x1 (1)
+move-right t5 x3 y3 x2 (1)
+move-up t2 x3 y2 y3 (1)
+move-up t1 x3 y1 y2 (1)
+move-left t3 x2 y1 x3 (1)
+move-left t6 x1 y1 x2 (1)
+move-down t7 x1 y2 y1 (1)
+move-down t8 x1 y3 y2 (1)
+move-right t5 x2 y3 x1 (1)
+move-up t4 x2 y2 y3 (1)
+move-up t6 x2 y1 y2 (1)
+move-left t7 x1 y1 x2 (1)
+move-down t8 x1 y2 y1 (1)
+move-right t6 x2 y2 x1 (1)
+move-down t4 x2 y3 y2 (1)
+move-right t2 x3 y3 x2 (1)
+move-up t1 x3 y2 y3 (1)
+move-left t4 x2 y2 x3 (1)
+move-down t2 x2 y3 y2 (1)
+move-left t5 x1 y3 x2 (1)
+move-up t6 x1 y2 y3 (1)
+move-right t2 x2 y2 x1 (1)
+move-right t4 x3 y2 x2 (1)
+move-down t1 x3 y3 y2 (1)
+move-left t5 x2 y3 x3 (1)
+move-left t6 x1 y3 x2 (1)
+move-up t2 x1 y2 y3 (1)
+move-right t4 x2 y2 x1 (1)
+move-down t6 x2 y3 y2 (1)
+move-right t5 x3 y3 x2 (1)
+move-up t1 x3 y2 y3 (1)
+move-left t6 x2 y2 x3 (1)
+move-left t4 x1 y2 x2 (1)
+move-up t8 x1 y1 y2 (1)
+move-right t7 x2 y1 x1 (1)
+move-right t3 x3 y1 x2 (1)
+move-down t6 x3 y2 y1 (1)
+move-left t4 x2 y2 x3 (1)
+move-up t3 x2 y1 y2 (1)
+move-left t7 x1 y1 x2 (1)
+move-down t8 x1 y2 y1 (1)
+move-down t2 x1 y3 y2 (1)
+move-right t5 x2 y3 x1 (1)
+move-up t3 x2 y2 y3 (1)
+move-right t4 x3 y2 x2 (1)
+move-down t1 x3 y3 y2 (1)
+move-left t3 x2 y3 x3 (1)
+move-left t5 x1 y3 x2 (1)
+move-up t2 x1 y2 y3 (1)
+[t=0.00554967s, 23816 KB] Plan length: 59 step(s).
+[t=0.00554967s, 23816 KB] Plan cost: 59
+[t=0.00554967s, 23816 KB] Expanded 240 state(s).
+[t=0.00554967s, 23816 KB] Reopened 0 state(s).
+[t=0.00554967s, 23816 KB] Evaluated 412 state(s).
+[t=0.00554967s, 23816 KB] Evaluations: 412
+[t=0.00554967s, 23816 KB] Generated 658 state(s).
+[t=0.00554967s, 23816 KB] Dead ends: 0 state(s).
+[t=0.00554967s, 23816 KB] Number of registered states: 412
+[t=0.00554967s, 23816 KB] Int hash set load factor: 412/512 = 0.804688
+[t=0.00554967s, 23816 KB] Int hash set resizes: 9
+[t=0.00554967s, 23816 KB] Search time: 0.00209981s
+[t=0.00554967s, 23816 KB] Total time: 0.00554967s
+Solution found.
+Peak memory: 23816 KB
+Remove intermediate file output.sas
+search exit code: 0
+
+INFO     Running validate.
+INFO     validate stdin: None
+INFO     validate time limit: None
+INFO     validate memory limit: None
+INFO     validate command line string: validate domain.pddl problem.pddl sas_plan
+Checking plan: sas_plan
+Plan executed successfully - checking goal
+Plan valid
+Final value: 59 
+
+Successful plans:
+Value: 59
+ sas_plan 59 
+
+validate exit code: 0
+
