@@ -6,6 +6,7 @@
 
 #include "../utils/collections.h"
 #include "../utils/timer.h"
+#include "../sas/root_sas.h"
 
 #include <algorithm>
 #include <cassert>
@@ -230,6 +231,7 @@ void read_and_verify_version(istream &in) {
              << "Exiting." << endl;
         utils::exit_with(ExitCode::SEARCH_INPUT_ERROR);
     }
+    sas::g_root_sas->set_version(version);
 }
 
 bool read_metric(istream &in) {
@@ -237,6 +239,7 @@ bool read_metric(istream &in) {
     check_magic(in, "begin_metric");
     in >> use_metric;
     check_magic(in, "end_metric");
+    sas::g_root_sas->set_metric(use_metric);
     return use_metric;
 }
 
@@ -258,6 +261,7 @@ vector<vector<set<FactPair>>> read_mutexes(istream &in, const vector<ExplicitVar
 
     int num_mutex_groups;
     in >> num_mutex_groups;
+    sas::g_root_sas->set_num_mutex(num_mutex_groups);
 
     /*
       NOTE: Mutex groups can overlap, in which case the same mutex
@@ -343,6 +347,8 @@ RootTask::RootTask(istream &in) {
     for (int i = 0; i < num_variables; ++i) {
         variables[i].axiom_default_value = initial_state_values[i];
     }
+
+    sas::g_root_sas->set_initial_state(initial_state_values);
 
     goals = read_goal(in);
     check_facts(goals, variables);
@@ -494,6 +500,7 @@ void RootTask::convert_state_values(
 }
 
 void read_root_task(istream &in) {
+    sas::read_root_sas();
     assert(!g_root_task);
     g_root_task = make_shared<RootTask>(in);
 }
