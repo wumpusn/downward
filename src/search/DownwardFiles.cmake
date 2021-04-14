@@ -48,6 +48,7 @@ fast_downward_plugin(
     SOURCES
         planner
 
+        abstract_sas
         abstract_task
         axioms
         command_line
@@ -70,6 +71,7 @@ fast_downward_plugin(
         plan_manager
         plugin
         pruning_method
+        sas_proxy
         search_engine
         search_node_info
         search_progress
@@ -124,6 +126,14 @@ fast_downward_plugin(
         utils/system_unix
         utils/system_windows
         utils/timer
+    CORE_PLUGIN
+)
+
+fast_downward_plugin(
+    NAME SAS
+    HELP "Remain SAS+ information"
+    SOURCES
+        sas/root_sas
     CORE_PLUGIN
 )
 
