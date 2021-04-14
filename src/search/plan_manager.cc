@@ -12,6 +12,8 @@
 
 using namespace std;
 
+bool IS_CHILD_PROCESS = false;
+
 int calculate_plan_cost(const Plan &plan, const TaskProxy &task_proxy) {
     OperatorsProxy operators = task_proxy.get_operators();
     int plan_cost = 0;
@@ -39,6 +41,9 @@ void PlanManager::set_is_part_of_anytime_portfolio(bool is_part_of_anytime_portf
     is_part_of_anytime_portfolio = is_part_of_anytime_portfolio_;
 }
 
+void PlanManager::set_is_child_process(bool is_child_process_) {
+    IS_CHILD_PROCESS = is_child_process_;
+}
 void PlanManager::save_plan(
     const Plan &plan, const TaskProxy &task_proxy,
     bool generates_multiple_plan_files) {

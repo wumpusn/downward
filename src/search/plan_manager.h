@@ -19,7 +19,7 @@ public:
     void set_plan_filename(const std::string &plan_filename);
     void set_num_previously_generated_plans(int num_previously_generated_plans);
     void set_is_part_of_anytime_portfolio(bool is_part_of_anytime_portfolio);
-
+    void set_is_child_process(bool is_child_process);
     /*
       Set generates_multiple_plan_files to true if the planner can find more than
       one plan and should number the plans as FILENAME.1, ..., FILENAME.n.
@@ -30,5 +30,6 @@ public:
 };
 
 extern int calculate_plan_cost(const Plan &plan, const TaskProxy &task_proxy);
+extern bool IS_CHILD_PROCESS;
 
 #endif
