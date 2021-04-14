@@ -47,6 +47,7 @@ static shared_ptr<SearchEngine> parse_cmd_line_aux(
     int num_previously_generated_plans = 0;
     bool is_part_of_anytime_portfolio = false;
     options::Predefinitions predefinitions;
+    bool is_child_process = false;
 
     shared_ptr<SearchEngine> engine;
     /*
@@ -105,6 +106,8 @@ static shared_ptr<SearchEngine> parse_cmd_line_aux(
             num_previously_generated_plans = parse_int_arg(arg, args[i]);
             if (num_previously_generated_plans < 0)
                 throw ArgError("argument for --internal-previous-portfolio-plans must be positive");
+        } else if (arg == "--is-child-process") {
+            is_child_process = true;
         } else if (utils::startswith(arg, "--") &&
                    registry.is_predefinition(arg.substr(2))) {
             if (is_last)
@@ -123,6 +126,7 @@ static shared_ptr<SearchEngine> parse_cmd_line_aux(
         plan_manager.set_plan_filename(plan_filename);
         plan_manager.set_num_previously_generated_plans(num_previously_generated_plans);
         plan_manager.set_is_part_of_anytime_portfolio(is_part_of_anytime_portfolio);
+        plan_manager.set_is_child_process(is_child_process);
     }
     return engine;
 }
