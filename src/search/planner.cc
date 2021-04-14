@@ -9,6 +9,7 @@
 #include "utils/system.h"
 #include "utils/timer.h"
 #include "sas/root_sas.h"
+#include "sas_proxy.h"
 
 #include <iostream>
 
@@ -30,7 +31,7 @@ int main(int argc, const char **argv) {
         utils::g_log << "done reading input!" << endl;
         TaskProxy task_proxy(*tasks::g_root_task);
         unit_cost = task_properties::is_unit_cost(task_proxy);
-        sas::read_root_sas(*tasks::g_root_task);
+        sas::g_root_sas->set_output_sas();
     }
 
     shared_ptr<SearchEngine> engine;
