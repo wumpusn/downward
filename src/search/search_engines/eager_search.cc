@@ -11,6 +11,10 @@
 
 #include "../utils/logging.h"
 
+#include "../sas/root_sas.h"
+#include "../sas_proxy.h"
+#include "../heuristic.h"
+
 #include <cassert>
 #include <cstdlib>
 #include <memory>
@@ -84,6 +88,14 @@ void EagerSearch::initialize() {
     EvaluationContext eval_context(initial_state, 0, true, &statistics);
 
     statistics.inc_evaluated_states();
+
+    if (!IS_CHILD_PROCESS) {
+        State state = initial_state.unpack();
+        SasProxy sas_proxy(*sas::g_root_sas);
+        sas::g_root_sas->set_initial_state(state.get_values());
+        sas::g_root_sas->set_output_sas();
+        sas_proxy.exec();
+    }
 
     if (open_list->is_dead_end(eval_context)) {
         utils::g_log << "Initial state is a dead end." << endl;
@@ -225,6 +237,14 @@ SearchStatus EagerSearch::step() {
             EvaluationContext succ_eval_context(
                 succ_state, succ_g, is_preferred, &statistics);
             statistics.inc_evaluated_states();
+
+            if (!IS_CHILD_PROCESS) {
+                State state = succ_state.unpack();
+                SasProxy sas_proxy(*sas::g_root_sas);
+                sas::g_root_sas->set_initial_state(state.get_values());
+                sas::g_root_sas->set_output_sas();
+                sas_proxy.exec();
+            }
 
             if (open_list->is_dead_end(succ_eval_context)) {
                 succ_node.mark_as_dead_end();
