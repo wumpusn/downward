@@ -18,6 +18,7 @@ public:
     virtual void conc_str(std::string str) = 0;
     virtual void set_output_sas() = 0;
     virtual std::vector<int> get_initial_state() const = 0;
+    virtual void set_mutexs(std::vector<std::vector<std::pair<int, int>>> mutexs) = 0;
 };
 
 #endif

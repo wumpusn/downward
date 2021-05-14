@@ -21,6 +21,7 @@ class RootSas : public AbstractSas {
     int num_mutex;
     std::string output_sas;
     std::vector<int> initial_state;
+    std::vector<std::vector<std::pair<int, int>>> mutexs;
 public:
     explicit RootSas(){}
     void set_version(int ver);
@@ -34,5 +35,6 @@ public:
     void conc_str(std::string str);
     void set_output_sas();
     std::vector<int> get_initial_state() const;
+    void set_mutexs(std::vector<std::vector<std::pair<int, int>>> mutexs);
 };
 #endif

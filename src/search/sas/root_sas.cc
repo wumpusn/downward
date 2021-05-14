@@ -95,7 +95,18 @@ void RootSas::set_output_sas() {
         }
         conc_str("end_variable");
     }
+    // mutex
     conc_str(to_string(num_mutex));
+    for(auto mutex : mutexs) {
+        conc_str("begin_mutex_group");
+        conc_str(to_string(mutex.size()));
+        for (auto m : mutex) {
+            conc_str(
+                to_string(m.first) + " " + to_string(m.second)
+            );
+        }
+        conc_str("end_mutex_group");
+    }
     conc_str("begin_state");
     for(int i = 0; i < initial_state.size(); i++) {
         conc_str(to_string(initial_state[i]));
@@ -175,16 +186,14 @@ string get_date_str() {
 }
 
 int RootSas::exec() const {
-    string filename = "tmp/output_" + get_date_str() + ".txt";
+    string filename = "tmp/output_sas_repro.txt";
     ofstream writing_file;
     ifstream ifs(filename);
     if (ifs.is_open()) {
         writing_file.open(filename, ios::trunc);
-        // printf("Overwrite\n");
     }
     else {
         writing_file.open(filename, ios::out);
-        // printf("New write\n");
     }
     writing_file << output_sas;
 
@@ -221,4 +230,9 @@ void RootSas::write_str(string str, file_discriptor fd) const {
 
 vector<int> RootSas::get_initial_state() const {
     return initial_state;
+}
+
+void RootSas::set_mutexs(std::vector<std::vector<std::pair<int, int>>> mutex_elems) {
+    mutexs.reserve(num_mutex);
+    mutexs = mutex_elems;
 }

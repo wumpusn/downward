@@ -251,7 +251,7 @@ vector<ExplicitVariable> read_variables(istream &in) {
     for (int i = 0; i < count; ++i) {
         variables.emplace_back(in);
     }
-    return variables;
+    return variables;   
 }
 
 vector<vector<set<FactPair>>> read_mutexes(istream &in, const vector<ExplicitVariable> &variables) {
@@ -262,6 +262,8 @@ vector<vector<set<FactPair>>> read_mutexes(istream &in, const vector<ExplicitVar
     int num_mutex_groups;
     in >> num_mutex_groups;
     sas::g_root_sas->set_num_mutex(num_mutex_groups);
+    vector<vector<pair<int, int>>> mutexs;
+    mutexs.reserve(num_mutex_groups);
 
     /*
       NOTE: Mutex groups can overlap, in which case the same mutex
@@ -276,12 +278,16 @@ vector<vector<set<FactPair>>> read_mutexes(istream &in, const vector<ExplicitVar
         in >> num_facts;
         vector<FactPair> invariant_group;
         invariant_group.reserve(num_facts);
+        vector<pair<int, int>> mutex;
+        mutex.reserve(num_facts);
         for (int j = 0; j < num_facts; ++j) {
             int var;
             int value;
             in >> var >> value;
             invariant_group.emplace_back(var, value);
+            mutex.emplace_back(var, value);
         }
+        mutexs.emplace_back(mutex);
         check_magic(in, "end_mutex_group");
         for (const FactPair &fact1 : invariant_group) {
             for (const FactPair &fact2 : invariant_group) {
@@ -301,6 +307,7 @@ vector<vector<set<FactPair>>> read_mutexes(istream &in, const vector<ExplicitVar
             }
         }
     }
+    sas::g_root_sas->set_mutexs(mutexs);
     return inconsistent_facts;
 }
 
