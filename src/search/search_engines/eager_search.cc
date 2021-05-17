@@ -89,12 +89,14 @@ void EagerSearch::initialize() {
 
     statistics.inc_evaluated_states();
 
-    if (!IS_CHILD_PROCESS) {
+    // Child process search for start state
+    if (SAS_OUTPUT) {
         State state = initial_state.unpack();
         SasProxy sas_proxy(*sas::g_root_sas);
         sas::g_root_sas->set_initial_state(state.get_values());
         sas::g_root_sas->set_output_sas();
         sas_proxy.exec();
+        sas::SAS_CNT++;
     }
 
     if (open_list->is_dead_end(eval_context)) {
@@ -238,12 +240,14 @@ SearchStatus EagerSearch::step() {
                 succ_state, succ_g, is_preferred, &statistics);
             statistics.inc_evaluated_states();
 
-            if (!IS_CHILD_PROCESS) {
+            // Child process search for searching state
+            if (SAS_OUTPUT && !COMP_TEST) {
                 State state = succ_state.unpack();
                 SasProxy sas_proxy(*sas::g_root_sas);
                 sas::g_root_sas->set_initial_state(state.get_values());
                 sas::g_root_sas->set_output_sas();
                 sas_proxy.exec();
+                sas::SAS_CNT++;
             }
 
             if (open_list->is_dead_end(succ_eval_context)) {

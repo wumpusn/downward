@@ -14,6 +14,7 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <ctime>
+#include <iomanip>
 
 using namespace std;
 
@@ -23,6 +24,7 @@ void read_root_sas() {
     assert(!g_root_sas);
     g_root_sas = make_shared<RootSas>();
 }
+int SAS_CNT = 0;
 }
 
 
@@ -186,7 +188,10 @@ string get_date_str() {
 }
 
 int RootSas::exec() const {
-    string filename = "tmp/output_sas_repro.txt";
+    string cnt;
+    cnt = zero_pud(sas::SAS_CNT);
+    string filename = "tmp/output_sas_repro_" + cnt + ".txt";
+
     ofstream writing_file;
     ifstream ifs(filename);
     if (ifs.is_open()) {
@@ -197,30 +202,30 @@ int RootSas::exec() const {
     }
     writing_file << output_sas;
 
-    int fd, child, status;
+    // int fd, child, status;
 
-    fd = open(filename.c_str(), O_RDONLY);
-    if ( fd < 0) {
-        perror("open");
-        exit(1);
-    }
-    if ((child = fork()) < 0) {
-        perror("fork");
-        exit(1);
-    }
-    if (child == 0) {
-        dup2(fd, STDIN_FILENO);
-        close(fd);
-        exec_downward_bin();
-    }
-    else {
-        if(wait(&status) < 0) {
-            perror("wait");
-            exit(1);
-        }
-        printf("The child (pid=%d) exited with status(%d).\n",
-            child, WEXITSTATUS(status));
-    }
+    // fd = open(filename.c_str(), O_RDONLY);
+    // if ( fd < 0) {
+    //     perror("open");
+    //     exit(1);
+    // }
+    // if ((child = fork()) < 0) {
+    //     perror("fork");
+    //     exit(1);
+    // }
+    // if (child == 0) {
+    //     dup2(fd, STDIN_FILENO);
+    //     close(fd);
+    //     exec_downward_bin();
+    // }
+    // else {
+    //     if(wait(&status) < 0) {
+    //         perror("wait");
+    //         exit(1);
+    //     }
+    //     printf("The child (pid=%d) exited with status(%d).\n",
+    //         child, WEXITSTATUS(status));
+    // }
 }
 
 void RootSas::write_str(string str, file_discriptor fd) const {
@@ -235,4 +240,11 @@ vector<int> RootSas::get_initial_state() const {
 void RootSas::set_mutexs(std::vector<std::vector<std::pair<int, int>>> mutex_elems) {
     mutexs.reserve(num_mutex);
     mutexs = mutex_elems;
+}
+
+string RootSas::zero_pud(int num) const {
+    ostringstream ss;
+    ss << setw(8) << setfill('0') << num;
+    string s(ss.str());
+    return s;
 }

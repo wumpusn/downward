@@ -12,6 +12,7 @@ using file_discriptor = int;
 namespace sas {
 extern std::shared_ptr<AbstractSas> g_root_sas;
 extern void read_root_sas();
+extern int SAS_CNT;
 }
 
 
@@ -36,5 +37,6 @@ public:
     void set_output_sas();
     std::vector<int> get_initial_state() const;
     void set_mutexs(std::vector<std::vector<std::pair<int, int>>> mutexs);
+    std::string zero_pud(int num) const;
 };
 #endif
